@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logar | AgroTech</title>
+    <link rel="stylesheet" href="../styles/styleLog.css">
+</head>
+
+<body onKeyUp="enter(event)">
+    <main>
+        <div class="container">
+            <div class="descricao">
+                <span class="title">AgroTech</span>
+                <span class="sobre">A AgroTech está pronta para oferecer
+                    serviços de locação e terceirização de frota de
+                    veículos que você ou sua empresa precisa.</span>
+            </div>
+            <div class="login">
+                <label class="label">Email cadastrado:</label>
+                <input type="text" id="email" class="email" />
+                <label class="label">Senha:</label>
+                <input type="password" id="senha" class="senha" />
+                <button onclick="logar()" id="botaoLogin" class="botao">Entrar</button>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="../scripts/scriptLog.js"></script>
+
+</html>
