@@ -20,7 +20,6 @@ model Motorista {
   nome     String
   cpf      String     @unique
   cnh      String     @unique
-  veiculo  String
   servicos Servicos[]
 }
 
@@ -39,7 +38,7 @@ model Servicos {
   data_saida   DateTime
   data_retorno DateTime?
   descricao    String
-  motorista    Motorista @relation(fields: [id_moto], references: [id])
+  motorista    Motorista @relation(fields: [id_moto], references: [id], onDelete: Cascade)
 }
 
 model Manutencoes {
@@ -49,5 +48,5 @@ model Manutencoes {
   valor       Float
   descricao   String
   id_veiculo  Int
-  veiculo     Veiculo   @relation(fields: [id_veiculo], references: [id])
+  veiculo     Veiculo   @relation(fields: [id_veiculo], references: [id], onDelete: Cascade)
 }

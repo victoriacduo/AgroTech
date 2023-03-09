@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to right bottom,
+            #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: 80%;
+    border-radius: 20px;
+    background-color: #FFF;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 10%;
+}
+
+.header>button {
+    background: none;
+    border: none;
+    font-size: 16pt;
+    cursor: pointer;
+}
+
+.motorista-modal,
+.veiculo-modal,
+.servicos-modal,
+.manutencoes-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+table.tabela {
+    border: 1px solid #FFFFFF;
+    background-color: #EEEEEE;
+    width: 75%;
+    height: 30%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table.tabela td,
+table.tabela th {
+    border: 3px solid #FFFFFF;
+    padding: 3px 2px;
+}
+
+table.tabela tbody td {
+    font-size: 14pt;
+}
+
+table.tabela thead {
+    background: #008793;
+    border-bottom: 5px solid #FFFFFF;
+}
+
+table.tabela thead th {
+    font-size: 17px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #FFFFFF;
+}
+
+table.tabela thead th:first-child {
+    border-left: none;
+}
+
+table.tabela tfoot td {
+    font-size: 14px;
+}
+
+#edit>button {
+    border: none;
+    cursor: pointer;
+}
+
+.cadastro {
+    border: 1px solid #FFFFFF;
+    background: #008793;
+    width: 75%;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16pt;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.cadastro:hover,
+.cadastro:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.cadastro:hover {
+    transform: translateY(-1px);
+}
+
+.cadastro:active {
+    background-color: #008793;
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: rgba(166, 166, 166, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+.modalMoto,
+.modalVei,
+.modalServ,
+.modalManu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.form-modal {
+    width: 25%;
+    height: 40%;
+    background-color: #ffffff;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-modal>button {
+    border: none;
+    background: none;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 25px;
+    font-size: 16pt;
+    cursor: pointer;
+}
+
+.nomeModal,
+.cpfModal,
+.cnhModal,
+.modeloModal,
+.marcaModal,
+.servModal,
+.placaModal,
+.idMotoModal,
+.saidaModal,
+.retornoModal,
+.descricaoModal,
+.inicioModal,
+.fimModal,
+.valorModal,
+.descricaoModal,
+.idVeiModal {
+    max-width: 300px;
+    height: 30px;
+    background-color: #05060f0a;
+    border-radius: 10px;
+    padding: 15px;
+    border: 2px solid transparent;
+    font-size: 12pt;
+    margin-bottom: 15px;
+    transition: border-color .3s cubic-bezier(.25, .01, .25, 1) 0s, color .3s cubic-bezier(.25, .01, .25, 1) 0s, background .2s cubic-bezier(.25, .01, .25, 1) 0s;
+}
+
+.input:hover,
+.input:focus,
+.input-group:hover .input {
+    outline: none;
+    border-color: #05060f;
+}
+
+.login:hover .label,
+.input:focus {
+    color: #05060fc2;
+}
+
+.botao {
+    align-items: center;
+    width: 190px;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    font-size: 12pt;
+    font-weight: 700;
+    line-height: 1.25;
+    padding: 15px 25px;
+    text-decoration: none;
+    transition: all 250ms;
+    margin-top: 10px;
+}
+
+.botao:hover,
+.botao:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.botao:hover {
+    transform: translateY(-1px);
+}
+
+.botao:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+.model {
+    display: none;
+    visibility: hidden;
+}

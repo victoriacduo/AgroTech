@@ -17,7 +17,7 @@ const logar = () => {
     fetch('http://localhost:3000/usuario/login', {
         'method': 'POST',
         'headers': {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(usuario)
     }).then(response => { return response.json() })
@@ -25,7 +25,11 @@ const logar = () => {
             console.log(info);
             if (info.nome != undefined) {
                 window.localStorage.setItem('usuario', JSON.stringify(info));
-                window.location.href = '../pages/home.html';
+                if (info.cargo == "Gerente") {
+                    window.location.href = '../html/gerencial.html'
+                } else {
+                    window.location.href = '../html/comum.html';
+                }
             } else {
                 alert('Erro ao logar, email ou senha incorreta!');
                 window.location.reload();

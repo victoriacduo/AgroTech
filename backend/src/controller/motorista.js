@@ -9,6 +9,12 @@ const create = async (req, res) => {
     res.status(200).json(motorista).end();
 }
 
+const readAll = async (req, res) => {
+    let motorista = await prisma.motorista.findMany();
+
+    res.status(200).json(motorista).end();
+}
+
 const read = async (req, res) => {
     let motorista = await prisma.motorista.findUnique({
         where: {
@@ -17,8 +23,7 @@ const read = async (req, res) => {
         select: {
             nome: true,
             cpf: true,
-            cnh: true,
-            veiculo: true
+            cnh: true
         }
     });
     res.status(200).json(motorista).end();
@@ -27,14 +32,15 @@ const read = async (req, res) => {
 const del = async (req, res) => {
     let motorista = await prisma.motorista.delete({
         where: {
-          id: Number(req.params.id)
+            id: Number(req.params.id)
         },
-      });
-      res.status(200).end();
+    });
+    res.status(200).end();
 }
 
 module.exports = {
     create,
+    readAll,
     read,
     del
 }

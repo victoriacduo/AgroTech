@@ -33,10 +33,10 @@ const readAll = async (req, res) => {
 const del = async (req, res) => {
     let veiculo = await prisma.veiculo.delete({
         where: {
-          id: Number(req.params.id)
+            id: Number(req.params.id)
         },
-      });
-      res.status(200).end();
+    });
+    res.status(200).end();
 }
 
 module.exports = {

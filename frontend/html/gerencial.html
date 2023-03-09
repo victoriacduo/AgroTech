@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerente | AgroTech</title>
+    <link rel="stylesheet" href="../styles/styleGer.css">
+    <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon">
+</head>
+
+<body onload="loadAll()">
+    <main>
+        <div class="container">
+            <div class="header">
+                <button onclick="abrirModalMoto()">Motorista</button>
+                <button onclick="abrirModalVei()">Veículo</button>
+                <button onclick="abrirModalSer()">Serviços</button>
+                <button onclick="abrirModalManu()">Manutenções</button>
+            </div>
+            <div class="motorista-modal">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>CNH</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="contentMoto">
+                        <tr id="linhaMoto" class="model">
+                            <td id="idMoto"></td>
+                            <td id="nomeMoto"></td>
+                            <td id="cpfMoto"></td>
+                            <td id="cnhMoto"></td>
+                            <td id="edit"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="cadastro" id="cadastrarMoto" onclick="modalCadMoto()">+</button>
+            </div>
+
+            <div class="veiculo-modal model">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Modelo</th>
+                            <th>Marca</th>
+                            <th>Serviço</th>
+                            <th>Placa</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="contentVei">
+                        <tr id="linhaVei" class="model">
+                            <td id="idVei"></td>
+                            <td id="modelo"></td>
+                            <td id="marca"></td>
+                            <td id="servs"></td>
+                            <td id="placa"></td>
+                            <td id="edit"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="cadastro" id="cadastrarVei" onclick="modalCadVei()">+</button>
+            </div>
+
+            <div class="servicos-modal model">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>ID Motorista</th>
+                            <th>Saída</th>
+                            <th>Retorno</th>
+                            <th>Descrição</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="contentServ">
+                        <tr id="linhaServ" class="model">
+                            <td id="idServ"></td>
+                            <td id="idMotoServ"></td>
+                            <td id="dataSaida"></td>
+                            <td id="dataRetorno"></td>
+                            <td id="descricao"></td>
+                            <td id="edit"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="cadastro" id="cadastrarServ" onclick="modalCadServ()">+</button>
+            </div>
+
+            <div class="manutencoes-modal model">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Início</th>
+                            <th>Fim</th>
+                            <th>Valor</th>
+                            <th>Descrição</th>
+                            <th>ID Veículo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="contentManu">
+                        <tr id="linhaManu" class="model">
+                            <td id="idManu"></td>
+                            <td id="inicio"></td>
+                            <td id="fim"></td>
+                            <td id="valor"></td>
+                            <td id="descricao"></td>
+                            <td id="idVeiculo"></td>
+                            <td id="edit"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="cadastro" id="cadastrarManu" onclick="modalCadManu()">+</button>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="modalMoto model">
+        <div class="form-modal">
+            <button onclick="modalCadMoto()">X</button>
+            <input type="text" id="motoName" class="nomeModal" placeholder="Nome completo do motorista" />
+            <input type="text" id="motoCpf" class="cpfModal" placeholder="CPF" />
+            <input type="text" id="motoCnh" class="cnhModal" placeholder="CNH" />
+            <div>
+                <button class="botao" onclick="fetchCadMoto()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalVei model">
+        <div class="form-modal">
+            <button onclick="modalCadVei()">X</button>
+            <input type="text" id="veiModelo" class="modeloModal" placeholder="Modelo do veículo" />
+            <input type="text" id="veiMarca" class="marcaModal" placeholder="Marca do veículo" />
+            <input type="text" id="veiServ" class="servModal" placeholder="Serviço prestado" />
+            <input type="text" id="veiPlaca" class="placaModal" placeholder="Placa do veículo" />
+            <div>
+                <button class="botao" onclick="fetchCadVei()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalServ model">
+        <div class="form-modal">
+            <button onclick="modalCadServ()">X</button>
+            <input type="number" id="servIdMoto" class="idMotoModal" placeholder="ID do Motorista" />
+            <input type="text" id="servSaida" class="saidaModal" placeholder="Horário de Saída" />
+            <input type="text" id="servRetorno" class="retornoModal" placeholder="Horário do Retorno" />
+            <input type="text" id="servDescricao" class="descricaoModal" placeholder="Descrição" />
+            <div>
+                <button class="botao" onclick="fetchCadServ()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalManu model">
+        <div class="form-modal">
+            <button onclick="modalCadManu()">X</button>
+            <input type="text" id="manuInicio" class="inicioModal" placeholder="Hora início da manutenção" />
+            <input type="text" id="manuFim" class="fimModal" placeholder="Hora fim da manutenção" />
+            <input type="number" id="manuValor" class="valorModal" placeholder="Valor" />
+            <input type="text" id="manuDesc" class="descricaoModal" placeholder="Descrição" />
+            <input type="number" id="manuIdVei" class="idVeiModal" placeholder="ID do veículo" />
+            <div>
+                <button class="botao" onclick="fetchCadManu()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../scripts/scriptGer.js"></script>
+
+</html>
