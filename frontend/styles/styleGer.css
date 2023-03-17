@@ -49,6 +49,8 @@ main {
     justify-content: space-evenly;
     width: 100%;
     height: 10%;
+    cursor: pointer;
+    font-size: 16pt;
 }
 
 .header>button {
@@ -56,6 +58,30 @@ main {
     border: none;
     font-size: 16pt;
     cursor: pointer;
+}
+
+.tabMoto:hover {
+    border-bottom: 5px solid #008793;
+    width: 150px;
+    background-color: #c7c7c747;
+}
+
+.tabVeic:hover {
+    border-bottom: 5px solid #008793;
+    width: 150px;
+    background-color: #c7c7c747;
+}
+
+.tabServ:hover {
+    border-bottom: 5px solid #008793;
+    width: 150px;
+    background-color: #c7c7c747;
+}
+
+.tabManu:hover {
+    border-bottom: 5px solid #008793;
+    width: 190px;
+    background-color: #c7c7c747;
 }
 
 .motorista-modal,

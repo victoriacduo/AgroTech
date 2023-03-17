@@ -1,28 +1,31 @@
 import { useState } from 'react'
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient'
+import { LinearGradient } from 'expo-linear-gradient';
+import { Alert } from 'react-native';
 
 const logo = require('../../assets/logo.png');
 
+const login = () => {
+
+}
+
 export default function Login({ navigation }) {
     return (
-        <View>
-            <LinearGradient
-                colors={['#051937, #004d7a, #008793, #00bf72, #a8eb12']} style={style.container}
-                start={{ x: 0, y: 0.5 }}
-                end={{ x: 1, y: 0.5 }} >
-
-                <View style={style.centro}>
-                    <Image style={style.logo} source={{ uri: logo }} />
-                    <View style={style.viewInputs}>
-                        <TextInput placeholderTextColor={"#00000077"} style={style.inputs} placeholder="Informe o email" />
-                        <TextInput placeholderTextColor={"#00000077"} secureTextEntry={true} style={style.inputs} placeholder="Informe sua senha" />
-                        <TouchableOpacity style={style.botao}>
-                            <Text style={{ fontWeight: 'bold', fontFamily: 'Poppins-Regular', color: 'white' }}>Entrar</Text>
-                        </TouchableOpacity>
-                    </View>
+        <View style={style.container}>
+            <LinearGradient colors={['#051937', '#004d7a', '#008793', '#00bf72', '#b0d647', 'transparent',]}
+                style={style.background}
+            />
+            <View style={style.centro}>
+                <Image style={style.logo} source={{ uri: logo }} />
+                <Text style={{ fontFamily: 'Poppins-ExtraBold', fontSize: '18pt', color: '#444939' }}>AgroTech</Text>
+                <View style={style.viewInputs}>
+                    <TextInput placeholderTextColor={"#00000077"} style={style.inputs} placeholder="Informe o email" />
+                    <TextInput placeholderTextColor={"#00000077"} secureTextEntry={true} style={style.inputs} placeholder="Informe sua senha" />
+                    <TouchableOpacity style={style.botao}>
+                        <Text style={{ fontFamily: 'Poppins-Bold' }}>Entrar</Text>
+                    </TouchableOpacity>
                 </View>
-            </LinearGradient>
+            </View>
         </View>
     )
 }
@@ -31,27 +34,26 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     background: {
         position: 'absolute',
-        height: 300,
+        left: 0,
+        right: 0,
+        top: 0,
+        height: 750
     },
     centro: {
         alignItems: 'center',
+        backgroundColor: 'white',
+        borderRadius: '20px',
+        padding: '10px',
+        width: '250px',
+        height: '400px'
     },
     logo: {
         height: '200px',
         width: '200px',
-        marginBottom: '10px',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.70,
-        shadowRadius: 10.00,
-        levation: 10,
     },
     viewInputs: {
         alignItems: 'center',
@@ -60,36 +62,26 @@ const style = StyleSheet.create({
     },
     inputs: {
         fontFamily: 'Poppins-Regular',
-        backgroundColor: '#efefef',
-        padding: '10px',
-        borderRadius: '5px',
-        margin: '7px',
-        width: '230px',
-        height: '45px',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.70,
-        shadowRadius: 10.00,
-        levation: 10,
+        maxWidth: '190px',
+        height: '35px',
+        backgroundColor: '#05060f0a',
+        borderRadius: '10px',
+        padding: '15px',
+        fontSize: '10pt',
+        marginBottom: '5px',
     },
     botao: {
         alignItems: 'center',
+        width: '190px',
+        height: '35px',
+        backgroundColor: '#FFFFFF',
+        border: '1px solid rgba(0, 0, 0, 0.1)',
+        borderRadius: '20px',
+        cursor: 'pointer',
+        display: 'inline-flex',
         justifyContent: 'center',
-        width: '230px',
-        height: '40px',
-        borderRadius: '5px',
-        margin: '7px',
-        backgroundColor: '#8A66FA',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.70,
-        shadowRadius: 10.00,
-        levation: 10,
+        fontSize: '12pt',
+        padding: '15px',
+        marginTop: '5px'
     }
 })
