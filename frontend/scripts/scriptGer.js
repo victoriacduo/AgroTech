@@ -23,6 +23,10 @@ var veiculos = [];
 var servicos = [];
 var manutencoes = [];
 
+function pagRel() {
+    window.location.href = '../html/comum.html';
+}
+
 function loadAll() {
     fetch('http://localhost:3000/motorista')
         .then((resp) => { return resp.json() })
