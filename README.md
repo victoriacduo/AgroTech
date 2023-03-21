@@ -34,6 +34,8 @@ Para execução do projeto, o usuário deverá conter as seguintes aplicações 
 
 **Back-end:** NodeJS, Express, Cors, MySQL
 
+**Mobile:** Expo
+
 ## Estruturas de pastas
 - ./app
 - ./docs
